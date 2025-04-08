@@ -11,7 +11,7 @@ increasebutton.onclick=function(){
 
 }
 decreasebutton.onclick=function(){
- cout--;
+ count--;
  countbt.textContent=count;
 
 }
