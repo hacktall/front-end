@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Integrais</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .calc-container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Calculadora de Integrais</h1>
+  <div class="calc-container">
+    <label for="funcao">Digite a função (ex: x^2):</label>
+    <input type="text" id="funcao" placeholder="Ex: x^2 + 3*x">
+
+    <label for="variavel">Variável de integração:</label>
+    <input type="text" id="variavel" value="x">
+
+    <button onclick="calcularIntegral()">Calcular Integral</button>
+
+    <div id="resultado"></div>
+  </div>
+
+  <script>
+    function calcularIntegral() {
+      const expr = document.getElementById("funcao").value;
+      const variable = document.getElementById("variavel").value || "x";
+
+      try {
+        // Aproximação usando math.js: antiderivada numérica (não simbólica exata)
+        const integral = math.integrate(expr, variable);
+        document.getElementById("resultado").innerText = 
+          `∫ ${expr} d${variable} = ${integral.toString()} + C`;
+      } catch (e) {
+        document.getElementById("resultado").innerText = "Erro: Verifique a função inserida.";
+      }
+    }
+  </script>
+
+</body>
+</html>
