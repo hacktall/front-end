@@ -26,6 +26,8 @@ text-align:center;
 body {
       margin: 0;
       font-family: Arial, sans-serif;
+    background-color:rgb(218, 213, 213);
+    text-shadow: #333;
     }
 
     nav {
@@ -51,7 +53,7 @@ body {
     }
 
     ul.menu > li:hover {
-      background-color: #444;
+      background-color: #050202;
     }
 
     /* Submenu */
@@ -59,7 +61,7 @@ body {
       position: absolute;
       top: 100%;
       left: 0;
-      background-color: #444;
+      background-color: #050202;
       display: none;
       list-style: none;
       padding: 0;
